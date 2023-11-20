@@ -1,6 +1,6 @@
-# advent-20XX-clojure
+# advent-2023-clojure
 
-This is my code for the 20XX [Advent of Code](https://adventofcode.com/20XX),
+This is my code for the 2023 [Advent of Code](https://adventofcode.com/2023),
 all solutions in [Clojure](https://clojure.org/).
 
 All code is under the `src` directory. Each solution-file is named `dayNN.clj`
@@ -90,6 +90,6 @@ file has a variety of functions for parsing/managing the input.
 Once this template is used to create a new repo, do the following:
 
 1. Edit `project.clj` to change the `:url` and `:description` properties
-2. Edit this file to change `20XX` to the current year
+2. Edit this file to change `2023` to the current year
 3. Delete everything from second level-1 header ("Advent of Code Clojure Basis")
    to the end
