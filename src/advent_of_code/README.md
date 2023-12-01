@@ -28,7 +28,13 @@ lein run -b DAY PART
 
 ## [day01.clj](day01.clj)
 
-Day 1 (--/--).
+Day 1 (5607/5280, 45:51).
+
+Despite my preparation, I still fumbled a bit on part 1, causing it to take
+over 11 minutes. But the badness came with part 2: I already got a wrong
+submission, because I didn't realize the word-digits could overlap. Figuring
+out the root of the problem took way too long; solving it only had a few small
+mis-fires.
 
 ## [day02.clj](day02.clj)
 
