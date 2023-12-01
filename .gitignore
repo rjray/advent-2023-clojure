@@ -13,4 +13,3 @@ pom.xml.asc
 .tool-versions
 .clj-kondo
 .lsp
-resources
