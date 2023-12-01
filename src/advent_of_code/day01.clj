@@ -1,10 +1,14 @@
 (ns advent-of-code.day01
-  (:require [advent-of-code.utils :as u]
-            [clojure.string :as str]))
+  (:require [advent-of-code.utils :as u]))
 
+;; This is about the simplest way I know of, for extracting numbers from a line
+;; of text. Here I want single digits, so the RE is "\d". Normally it would be
+;; "\d+".
 (defn- parse-digits [line]
   (map #(Integer/parseInt %) (re-seq #"\d" line)))
 
+;; I felt this would be faster than concatenating two one-character strings and
+;; passing the result to Integer/parseInt.
 (defn- get-val [pair] (+ (* 10 (first pair)) (last pair)))
 
 (defn part-1
@@ -16,6 +20,8 @@
        (map get-val)
        (apply +)))
 
+;; This private map is used to map string digits and the word-digits to their
+;; actual numeric values.
 (def ^:private t2d-map {"zero" 0,
                         "0" 0,
                         "one" 1,
@@ -37,11 +43,17 @@
                         "nine" 9,
                         "9" 9})
 
+;; Here, `re-seq` is used with capturing, because the zero-width-lookahead
+;; was causing matches to come back as `nil`. For that reason, I use `comp`
+;; with the above map and `last` to get the matched string out of the vector
+;; that represents each match.
 (defn- txt2digit [line]
   (map (comp t2d-map last)
        (re-seq #"(?=([0-9]|one|two|three|four|five|six|seven|eight|nine))"
                line)))
 
+;; This is identical to part-1, except for using `txt2digit` in place of
+;; `parse-digits`.
 (defn part-2
   "Day 01 Part 2"
   [input]
