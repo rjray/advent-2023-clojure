@@ -38,7 +38,24 @@ mis-fires.
 
 ## [day02.clj](day02.clj)
 
-Day 2 (--/--).
+Day 2 (65239/61792, ~53:00).
+
+(Note: Due to being hella sick when this puzzle opened up, I didn't start it
+until the next morning. So, rather than starting right at midnight EST I
+started at about 10:40AM EST. Hence the super-low placement numbers.)
+
+This was another problem where I spent far more time on the parsing of the
+input data than I spent on the actual problem itself. I need to try to find
+common threads in these puzzles that have the harder-to-parse data, and see if
+I can convert them to utility functions.
+
+The puzzles themselves were pretty simple. Part 1 was just filtering out the
+games that could not be viable with the given number of cubes. This was pretty
+straightforward with `not`/`some` over a basic predicate. Part 2 was to find
+out the minimum number of cubes of each color needed for each game to be valid.
+We were then to take those three number, multiply them, and total up all the
+products. Again, very simple. It actually required less code and less time than
+part 1 had.
 
 ## [day03.clj](day03.clj)
 
