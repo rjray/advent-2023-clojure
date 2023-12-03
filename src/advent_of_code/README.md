@@ -59,7 +59,15 @@ part 1 had.
 
 ## [day03.clj](day03.clj)
 
-Day 3 (--/--).
+Day 3 (2893/3560, ~52:00).
+
+Here is where my utils code paid off. I already had code for turning things
+like the map-style input into a matrix.
+
+Part 1 was to find all numbers adjacent to a symbol. This wasn't hard, as we've
+been asked to "look around" points on maps before. Part 2 was to find all cases
+where a `*` symbol was adjacent to exactly two numbers. That took a little more
+work, but I actually finished it in less time than part 1 took.
 
 ## [day04.clj](day04.clj)
 
