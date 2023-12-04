@@ -71,7 +71,18 @@ work, but I actually finished it in less time than part 1 took.
 
 ## [day04.clj](day04.clj)
 
-Day 4 (--/--).
+Day 4 (5260/6763, ~43:00).
+
+This was a simple day, on the face of it. Got part 1 done in about 12-15
+minutes, and coded part 2 in about another 10. I ran it, submitted the answer,
+and it was wrong. I proceeded to spend another 15-20 minutes trying to debug
+it. In the process, I finally got desperate-enough to have it `prn` the
+"counts" vector for each loop iteration.
+
+THIS time, the answer was different. I submitted that, and it was correct.
+
+I have *no* idea why this happened. Subsequent runs of 4/2 give the correct
+answer consistently. I can't replicate the first "answer".
 
 ## [day05.clj](day05.clj)
 
