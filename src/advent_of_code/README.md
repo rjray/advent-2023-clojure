@@ -86,7 +86,26 @@ answer consistently. I can't replicate the first "answer".
 
 ## [day05.clj](day05.clj)
 
-Day 5 (--/--).
+Day 5 (7845/38381, ???).
+
+This was the first problem in which a brute-force approach for part 2 was not
+computationally feasible.
+
+Part 1 was pretty basic, though I over-engineered the parsing and
+representation of the maps out of caution for part 2. In the end, a combination
+of `partition` and `reduce` carried the puzzle.
+
+Part 2, well, I gave up for the night on it. It was late in my current
+time-zone (MST) and I had to be up early the next day to catch a plane home. So
+I returned to this problem this afternoon (hence the huge place-number for part
+2). Try as I may, I could not crack this on my own. I turned to reddit and read
+some different solutions in different languages. The one I managed to
+understand the most (that is, be the least confused by) was a Python solution
+([here](https://github.com/Leftfish/Advent-of-Code-2023/blob/main/05/d05.py))
+that does sampling to narrow down the general range before doing a final range
+with a step of 1. The biggest problem with it, was that I couldn't use it on
+the test data due to the size of the stepping. So when I submitted my answer
+for part 2, it was a leap of faith. Luckily, it was correct.
 
 ## [day06.clj](day06.clj)
 

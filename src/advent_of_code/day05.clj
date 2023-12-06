@@ -86,12 +86,13 @@
         ;; else
         (let [range-mins  (map #(find-smallest-in-range % maps step)
                                seed-ranges)
-              range-min   (reduce (fn [rm mins]
-                                    (if (our< rm mins)
+              range-min   (reduce (fn [mins rm]
+                                    (if (or (= -1 (first mins))
+                                            (our< rm mins))
                                       rm
                                       mins))
-                                  [-1 -1] range-mins)
-              candidate   (list (- (last range-min) step) (* 10 step))
+                                  minimum range-mins)
+              candidate   (list (- (last range-min) step) (* step 10))
               seed-ranges (list candidate)]
           (recur (/ step 10) range-min seed-ranges))))))
 
