@@ -68,9 +68,12 @@
        find-locations
        (reduce min)))
 
+;; Basing this on the Python code at:
+;; https://github.com/Leftfish/Advent-of-Code-2023/blob/main/05/d05.py
+
 ;; Find the smallest location in the given seed-range, using sampling based on
 ;; the value of `step`. I realize now, looking at it, that I could do the
-;; management of `newval` on lines 79-81 better.
+;; management of `newval` on lines 82-84 better.
 (defn- find-smallest-in-range [rng maps step]
   (loop [[current & cs] (range (first rng) (apply + rng) step)
          minimum        [-1 -1]]
