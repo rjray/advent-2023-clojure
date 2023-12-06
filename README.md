@@ -16,11 +16,11 @@ named for the day (`dayNN.txt`).
 
 ## Stats
 
-Number of answers correct on first submission: 9/10 (90.00%)
+Number of answers correct on first submission: 11/12 (91.67%)
 
 Highest finish for first half: 2893 (day 3)
 
-Highest finish for second half: 3560 (day 3)
+Highest finish for second half: 3403 (day 6)
 
 ## Usage
 

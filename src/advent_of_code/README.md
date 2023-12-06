@@ -82,7 +82,9 @@ it. In the process, I finally got desperate-enough to have it `prn` the
 THIS time, the answer was different. I submitted that, and it was correct.
 
 I have *no* idea why this happened. Subsequent runs of 4/2 give the correct
-answer consistently. I can't replicate the first "answer".
+answer consistently. I can't replicate the first "answer". Since it seems to
+have been a glitch, I chose not to count it as a wrong submission for my
+stats-keeping.
 
 ## [day05.clj](day05.clj)
 
@@ -109,7 +111,19 @@ for part 2, it was a leap of faith. Luckily, it was correct.
 
 ## [day06.clj](day06.clj)
 
-Day 6 (--/--).
+Day 6 (4297/3403, 16:35).
+
+Wow, I think this is about the fastest I've finished a non-day-1 pair. Of
+course, I was still #4297 and #3403, respectively.
+
+Part 1 took an inordinate amount of time because of a dumb error that took too
+long to debug. I had used the wrong value in the math, and spent a good 5+
+minutes figuring that out.
+
+Once I finished that, though, part 2 only took another 3 minutes. I was able to
+effect the "merging" of the number with `clojure.string/replace` and a regular
+expression of `[^\d]`. As a brute-force approach, it took 7.7s to run (versus
+the 3ms that part 1 took). But done is done!
 
 ## [day07.clj](day07.clj)
 
