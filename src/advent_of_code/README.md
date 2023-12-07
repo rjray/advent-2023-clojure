@@ -109,6 +109,18 @@ with a step of 1. The biggest problem with it, was that I couldn't use it on
 the test data due to the size of the stepping. So when I submitted my answer
 for part 2, it was a leap of faith. Luckily, it was correct.
 
+## [day05bis.clj](day05bis.clj)
+
+After some thought, I decided to refactor this code a little bit with the
+knowledge that I didn't need to preserve the names of the maps and/or reference
+them by name. Nothing really changed in the algorithms themselves.
+
+I shortened the file by 36 lines (some of which came from comments being
+simpler), but the real surprise came from the time difference: part 1's
+run-time went down roughly 20%, while part 2's went down about 87%. My guess is
+that, since part 2's sampling approach made significantly more calls to
+`find-location` the savings there propagated more than it had in part 1.
+
 ## [day06.clj](day06.clj)
 
 Day 6 (4297/3403, 16:35).
