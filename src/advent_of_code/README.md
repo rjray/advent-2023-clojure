@@ -139,7 +139,24 @@ the 3ms that part 1 took). But done is done!
 
 ## [day07.clj](day07.clj)
 
-Day 7 (--/--).
+Day 7 (7593/7614, 1:48:36).
+
+A poker simulation. Pretty sure there was something like this in a previous
+year.
+
+Part 1 was the basic part, and it took about 1:07:00. I struggled most with
+sorting the hands within a rank correctly; early attempts kept mangling the
+data somehow. Once I got that right, the rest fell into place and I got a right
+answer.
+
+Part 2 was a real looper: Now the `J` card is a joker, with some special rules
+associated with it. I struggled with this one, trying to figure out the
+"proper" way to override the `values` map for just part 2, to make the `J`
+value be 1 instead of 11. Nothing I tried worked. Then it hit me: I just used
+`clojure.string/replace` to turn all `J` instances into `1`, and added `1` to
+`values` with a value of 1. Then I treated `1` as a joker. After the first
+attempt on puzzle data crashed due to the smart-ass giving us a single hand of
+all-jokers, I fixed that bug and got part 2 correct.
 
 ## [day08.clj](day08.clj)
 
