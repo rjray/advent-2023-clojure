@@ -166,7 +166,24 @@ all-jokers, I fixed that bug and got part 2 correct.
 
 ## [day08.clj](day08.clj)
 
-Day 8 (--/--).
+Day 8 (16722/12029, ~1:09:49).
+
+(Time reflects that I did not start this until almost exactly two hours after
+the puzzle unlocked.)
+
+Part 1 was a breeze. I initially did it with liberal use of `keyword`, until I
+saw the requirements of part 2. The keyword-approach worked fine for part 1,
+but changing everything back to plain strings also worked fine.
+
+Part 2 was *another* case of brute force being totally unfeasible. Luckily, it
+became clear that there were cycles of different lengths for each of the
+starting nodes. So I reached into `clojure.math.numeric-tower` for the `lcm`
+function and found the LCM for all the path-cycle-lengths. It took a while to
+figure this solution out, though. 16 min or so for part 1, another 55-ish for
+part 2.
+
+I doubt I'll need to revise this one. I don't think it'll get faster or more
+succinct.
 
 ## [day09.clj](day09.clj)
 
