@@ -137,6 +137,12 @@ effect the "merging" of the number with `clojure.string/replace` and a regular
 expression of `[^\d]`. As a brute-force approach, it took 7.7s to run (versus
 the 3ms that part 1 took). But done is done!
 
+## [day06bis.clj](day06bis.clj)
+
+Not very much changed here, just dropped the brute-force approach in favor of
+using the [quadratic formula](https://en.wikipedia.org/wiki/Quadratic_formula)
+instead.
+
 ## [day07.clj](day07.clj)
 
 Day 7 (7593/7614, 1:48:36).
