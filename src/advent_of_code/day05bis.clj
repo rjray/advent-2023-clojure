@@ -61,8 +61,8 @@
 ;; `step` and `stop-step`, this can't be run on the example input from the
 ;; puzzle page.
 (defn- find-smallest-in-ranges [{:keys [seeds maps]}]
-  (let [seed-ranges (partition 2 seeds), stop-step 10000]
-    (loop [step 100000000, minimum -1, seed-ranges seed-ranges]
+  (let [seed-ranges (partition 2 seeds), stop-step 1000]
+    (loop [step 1000000, minimum -1, seed-ranges seed-ranges]
       (if (< step stop-step)
         (let [final (list (- (ffirst seed-ranges) step) (* step 10))]
           (first (find-smallest-in-range final maps 1)))
