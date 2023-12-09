@@ -164,6 +164,15 @@ value be 1 instead of 11. Nothing I tried worked. Then it hit me: I just used
 attempt on puzzle data crashed due to the smart-ass giving us a single hand of
 all-jokers, I fixed that bug and got part 2 correct.
 
+## [day07bis.clj](day07bis.clj)
+
+This is a weak revision so far. I've only changed the expression on line 29 (in
+`get-type`) to explicitly use `frequencies` as opposed to reimplementing it.
+
+I am still certain that the sorting of hands within a rank (the combination of
+`sort-rank` and `cmp-hands`) could be done in a way that is more concise, more
+Clojure-like, and (probably) more efficient.
+
 ## [day08.clj](day08.clj)
 
 Day 8 (16722/12029, ~1:09:49).
