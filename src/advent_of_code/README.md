@@ -185,6 +185,17 @@ part 2.
 I doubt I'll need to revise this one. I don't think it'll get faster or more
 succinct.
 
+## [day08bis.clj](day08bis.clj)
+
+OK, a *little* bit of revision.
+
+I removed `walk'` and make `walk` work for both parts. That trimmed 4-5 lines
+(not counting the comments). I also replaced the numeric-tower `lcm` with a
+version I got from reddit user `miran1` (https://www.reddit.com/user/miran1).
+This didn't really shorten the code (other than removing the `:require` of the
+numeric-tower lib), but it eliminated a start-up warning I was getting about
+that library redefining `abs`.
+
 ## [day09.clj](day09.clj)
 
 Day 9 (15636/15051, 3:23:44).
