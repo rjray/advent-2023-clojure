@@ -187,7 +187,25 @@ succinct.
 
 ## [day09.clj](day09.clj)
 
-Day 9 (--/--).
+Day 9 (15636/15051, 3:23:44).
+
+The time-elapsed on part 1 includes an hour or so to drive home from a club
+gathering, where I had started (but not finished) part 1.
+
+I don't know what to think, here. I wrote part 1 and submitted it based on the
+puzzle input, to be told the answer was wrong. I tried and tried to find a bug,
+no dice. So, I submitted the same answer again, thinking maybe I had missed a
+digit when doing the copy/paste. Still wrong. I copied and ran two working
+Python solutions and two other Clojure solutions, all gave the same answer.
+After posting on reddit, the AoC creater himself said that the answer was
+correct and I should try again. I did, and this time it was accepted.
+
+Part 2 was solved 6 minutes later, most of that 6 minutes was updating people
+in the Clojurians Slack and updating the reddit post.
+
+I'm not going to count this "wrong" answer, either. I don't know what went
+wrong, but I copy/pasted from my terminal. There were no invisible/hidden
+characters there.
 
 ## [day10.clj](day10.clj)
 
