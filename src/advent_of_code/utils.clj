@@ -78,3 +78,15 @@
       (= 1 x)           factors
       (zero? (mod x p)) (recur (/ x p) primes (conj factors p))
       :else             (recur x ps factors))))
+
+;; Taken from https://github.com/narimiran/AdventOfCode2023/blob/main/clojure/aoc.clj
+(defn gcd
+  ([] 1)
+  ([x] x)
+  ([a b] (if (zero? b) a
+             (recur b (mod a b)))))
+
+(defn lcm
+  ([] 1)
+  ([x] x)
+  ([a b] (/ (* a b) (gcd a b))))
