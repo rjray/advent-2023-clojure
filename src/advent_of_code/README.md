@@ -223,9 +223,10 @@ correct and I should try again. I did, and this time it was accepted.
 Part 2 was solved 6 minutes later, most of that 6 minutes was updating people
 in the Clojurians Slack and updating the reddit post.
 
-I'm not going to count this "wrong" answer, either. I don't know what went
+~~I'm not going to count this "wrong" answer, either. I don't know what went
 wrong, but I copy/pasted from my terminal. There were no invisible/hidden
-characters there.
+characters there.~~ I have determined that I was at fault, after all. Updating
+the main README.md as well.
 
 ## [day10.clj](day10.clj)
 
