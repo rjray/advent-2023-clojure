@@ -230,7 +230,23 @@ the main README.md as well.
 
 ## [day10.clj](day10.clj)
 
-Day 10 (--/--).
+Day 10 (4894/2687, 2:05:12).
+
+Part 1 took 1:08:52, part 2 took a little less than an hour after that.
+
+Part 2 took this long because I made not one but TWO mistakes when carrying
+over some Python logic that I borrowed from
+[here](https://github.com/ricbit/advent-of-code/blob/main/2023/adv10-r.py). The
+first mistake was that I didn't properly combine the test for a character to be
+`.` AND for the count of `|` characters to be odd. But, the worse of the two
+mistakes was that I didn't notice that the Python author had hard-coded a
+change of the `S` character for its actual pipe character. This was necessary
+for getting the find-internal-points logic to work. My first attempt at part 2
+was too high as a result. So, that's three mistakes by day 10... that said, my
+part 2 finish was my highest yet this year.
+
+I'll definitely be revisiting this later. I don't like having the
+`S`-substitution being hard-coded like that.
 
 ## [day11.clj](day11.clj)
 
