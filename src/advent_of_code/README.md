@@ -263,7 +263,21 @@ I'll definitely be revisiting this later. I don't like having the
 
 ## [day11.clj](day11.clj)
 
-Day 11 (--/--).
+Day 11 (5315/6205, 1:13:47).
+
+Finished part 1 in 41:13, then needed about 33 more minutes to finish overall.
+
+Part 1 was tricky for getting the logic of expanding the universe within the
+matrix that was the field. I didn't see part 2 coming very well, or I wouldn't
+have spent so much time on the actual field representation.
+
+In part 2, the "expansion went from 2 to 1,000,000 for each empty column and
+row. Obviously, there wasn't going to be any field representation in this case.
+The math escaped me for a bit, and I had an off-by-one error that I caught
+before I submitted a part 2 answer.
+
+The code isn't very pretty, though. I'll revise it to have less duplication
+between parts.
 
 ## [day12.clj](day12.clj)
 
