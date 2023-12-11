@@ -228,6 +228,19 @@ wrong, but I copy/pasted from my terminal. There were no invisible/hidden
 characters there.~~ I have determined that I was at fault, after all. Updating
 the main README.md as well.
 
+## [day09bis.clj](day09bis.clj)
+
+Just a minor change here, but a huge improvement. Using a trick shown by Raghav
+on the Clojurians Slack instance, I rewrote `extrapolate` to be two much
+smaller defn's. The first one, `infinite-diffs`, uses `iterate` to produce an
+"infinite" lazy sequence of the diffs from an initial sequence. The rewritten
+`extrapolate` uses `take-while` to get these diffs until a diff appears that is
+all zeros. At that point, it `map`'s `last` over these and sums them (basically
+what the original did with a `loop`/`recur` combo).
+
+Run-times are half that of the original code. And it's one SLOC line shorter as
+well.
+
 ## [day10.clj](day10.clj)
 
 Day 10 (4894/2687, 2:05:12).
