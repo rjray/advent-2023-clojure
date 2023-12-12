@@ -7,10 +7,14 @@
 ;; useless for part 2.
 
 (comment
+  ;; This tested to see if a substitution was valid by counting the blocks of
+  ;; `#` characters and comparing to the list of counts.
   (defn- valid? [pat nums]
     (let [groups (map count (re-seq #"#+" (str/join pat)))]
       (= groups nums)))
 
+  ;; This took a pattern and a sequence of the characters and applied the
+  ;; sequence into the pattern.
   (defn- fill-in [pat opts]
     (loop [[ch & chs] pat, opts opts, new []]
       (cond
@@ -18,6 +22,9 @@
         (= ch \?) (recur chs (rest opts) (conj new (first opts)))
         :else     (recur chs opts (conj new ch)))))
 
+  ;; The original solution: it determined how many `?` there were, then
+  ;; generated all the selections of (`.`, `#`) that were that number in length.
+  ;; Each of these was applied to the pattern and tested with `valid?`.
   (defn- find-arrangements [mult line]
     (let [[pat nums] (str/split line #"\s+")
           pat        (str/join "?" (repeat mult pat))
@@ -58,6 +65,11 @@
            :else                  hcnt))))))
 
 (defn- find-arrangements [mult line]
+  ;; Basically just a front-end to `dyn-prog` that manages the parsing of the
+  ;; input line. Note that both the pattern and the list of block-numbers are
+  ;; converted to vectors for easier indexing. Also note that each pattern has
+  ;; an extra `.` tacked onto the end, to make the end-case tests in the DP
+  ;; algorithm easier.
   (let [[pat nums] (str/split line #"\s+")
         pat        (conj (vec (str/join "?" (repeat mult pat))) \.)
         nums       (vec (u/parse-out-longs (str/join "," (repeat mult nums))))]
