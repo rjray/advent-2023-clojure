@@ -281,7 +281,22 @@ between parts.
 
 ## [day12.clj](day12.clj)
 
-Day 12 (--/--).
+Day 12 (2473/10978, 14:00:02).
+
+I solved part 1 relatively quickly (36:40), getting my highest finish so far
+this year. But it was a brute-force solution and it was clear it wouldn't work
+for part 2. I looked at a lot of different angles for part 2, including trying
+to implement the heuristics suggested on the puzzle page to reduce the search
+space.
+
+It was clear this was a dynamic programming problem, but I couldn't see *how*
+to apply dynamic programming in this case. I got frustrated and went to bed.
+
+This morning, with a clearer mind, I looked at a few Python solutions. I picked
+one that I understood better than the others and converted it. I hate doing
+that, in place of my own understanding/solution. But it was that or spend
+several more hours re-learning the finer points of dynamic programming. Even
+this algorithm took over 5s to return the answer for part 2.
 
 ## [day13.clj](day13.clj)
 
