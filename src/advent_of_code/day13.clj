@@ -1,11 +1,12 @@
 (ns advent-of-code.day13
-  (:require [advent-of-code.utils :as u]
-            [clojure.string :as str]))
+  (:require [advent-of-code.utils :as u]))
 
 ;; https://stackoverflow.com/questions/10347315/matrix-transposition-in-clojure
 (defn- transpose [m]
   (apply mapv vector m))
 
+;; Check for a horizontal reflection. Use `eq` for the equality test, so that
+;; it can be overridden for part 2.
 (defn- horiz-reflection [m eq]
   (let [all (filter pos? (for [l (range 1 (count m))
                                :let [[top btm] (split-at l m)]]
@@ -14,6 +15,8 @@
                              l 0)))]
     (if (seq all) (first all) 0)))
 
+;; Find the reflection point for `m`. Try a horizontal reflection on the input
+;; value first, if that doesn't find one then try it on a transpose of `m`.
 (defn- find-reflection-point [m]
   (let [refl (horiz-reflection m =)]
     (if (pos? refl)
@@ -33,6 +36,8 @@
 (defn- mirror= [a b]
   (= 1 (reduce + (mapcat (partial map #(if (= %1 %2) 0 1)) a b))))
 
+;; Just like `find-reflection-point`, but passes `mirror=` to the reflection
+;; calls.
 (defn- find-smudge-point [m]
   (let [refl (horiz-reflection m mirror=)]
     (if (pos? refl)
