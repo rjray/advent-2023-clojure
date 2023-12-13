@@ -11,9 +11,6 @@ days and try to clean up or optimize the solutions, that work will be in a
 separate file that will be named `dayNNbis.clj`. (Except that I may go back and
 comment code after the fact, when I'm not racing the clock.)
 
-The `resources` directory contains the input data for each day. These files are
-named for the day (`dayNN.txt`).
-
 ## Stats
 
 Number of answers correct on first submission: 21/24 (87.50%)
