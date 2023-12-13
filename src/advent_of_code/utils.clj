@@ -79,6 +79,10 @@
       (zero? (mod x p)) (recur (/ x p) primes (conj factors p))
       :else             (recur x ps factors))))
 
+;; https://stackoverflow.com/questions/10347315/matrix-transposition-in-clojure
+(defn- transpose [m]
+  (apply mapv vector m))
+
 ;; Taken from https://github.com/narimiran/AdventOfCode2023/blob/main/clojure/aoc.clj
 (defn gcd
   ([] 1)
