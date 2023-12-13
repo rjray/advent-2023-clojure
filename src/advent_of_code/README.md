@@ -300,7 +300,16 @@ this algorithm took over 5s to return the answer for part 2.
 
 ## [day13.clj](day13.clj)
 
-Day 13 (--/--).
+Day 13 (7944/21115).
+
+This sucked. Started about two hours late due to a hockey game, no big deal.
+Part 1 went pretty well, but part 2's answer was too low. Fiddled for a bit,
+but it was late and I chose to sleep on it.
+
+Today wasn't any better. I just wasn't getting the corner-cases right, from
+what I could tell. And my logic was all over the map. In the end, I took a
+comparator defn from one of the Clojure Slack guys, and that worked. And is
+*significantly* shorter than my non-working code had been.
 
 ## [day14.clj](day14.clj)
 
