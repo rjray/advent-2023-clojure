@@ -313,7 +313,19 @@ comparator defn from one of the Clojure Slack guys, and that worked. And is
 
 ## [day14.clj](day14.clj)
 
-Day 14 (--/--).
+Day 14 (7261/17848, 13:38:01).
+
+Started on time and finished part 1 in 1:09:29. But it took over 20s to run
+part 1, and I knew that wouldn't be viable for part 2.
+
+Part 2 was another "find the cycle and compute" problem, where you were to find
+out the answer after 1,000,000,000 iterations of the process. I slept on this,
+hence the long total time. I had to rewrite part 1 before doing this, and I
+wish I had written part 1 this way from the start. The rewrite needed 43ms to
+run what the original needed 20s for.
+
+Happy with the code, and I think I can factor-out the "find the cycle" code
+into something more generic for future use.
 
 ## [day15.clj](day15.clj)
 
