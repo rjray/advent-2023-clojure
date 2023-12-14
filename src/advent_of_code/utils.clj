@@ -80,7 +80,7 @@
       :else             (recur x ps factors))))
 
 ;; https://stackoverflow.com/questions/10347315/matrix-transposition-in-clojure
-(defn- transpose [m]
+(defn transpose [m]
   (apply mapv vector m))
 
 ;; Taken from https://github.com/narimiran/AdventOfCode2023/blob/main/clojure/aoc.clj
