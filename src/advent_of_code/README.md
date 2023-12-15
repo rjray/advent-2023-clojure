@@ -337,7 +337,9 @@ unspecified reasons.
 Part 1 was very easy, finished in about 5 minutes of effort. Part 2 took about
 40 minutes, mostly due to morning-brain fog. I had forgotten to convert the
 focal length values from strings to integers, and this led to a misleading
-error message from the Clojure run-time.
+error message from the Clojure run-time. I also mis-read the instructions for
+part 2 and was initially hashing the whole instruction to get the box number,
+instead of just the label.
 
 Overall, the code is pretty tight. There may be things I can improve upon, once
 I've read some other Clojure solutions. I like that all the non-public defn's
