@@ -329,7 +329,19 @@ into something more generic for future use.
 
 ## [day15.clj](day15.clj)
 
-Day 15 (--/--).
+Day 15 (10677/22388, 11:47:06).
+
+Started this one just under two hours late, then slept after part 1 for
+unspecified reasons.
+
+Part 1 was very easy, finished in about 5 minutes of effort. Part 2 took about
+40 minutes, mostly due to morning-brain fog. I had forgotten to convert the
+focal length values from strings to integers, and this led to a misleading
+error message from the Clojure run-time.
+
+Overall, the code is pretty tight. There may be things I can improve upon, once
+I've read some other Clojure solutions. I like that all the non-public defn's
+are under 10 lines in length.
 
 ## [day16.clj](day16.clj)
 
