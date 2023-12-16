@@ -347,7 +347,30 @@ are under 10 lines in length.
 
 ## [day16.clj](day16.clj)
 
-Day 16 (--/--).
+Day 16 (20025/19217, 14:08:44).
+
+Started part 1 about 2:15 late, but I was exhausted from a holiday party and I
+opted to go to sleep and finish this morning. Realistically, I spent about 30
+minutes on each half (the second half took 35 minutes because I initially had a
+bug to find and fix).
+
+Part 1 went fairly easily. My first test-run of it blew out the stack, because
+I wasn't tracking the squares I had already visited *and* the beam direction as
+well. I was only tracking the "charged" squares. When I added a track of
+entry-points as well, the code worked and got part 1 in about 129ms of
+run-time.
+
+Part 2 was not as hard as I had feared-- I was worried we might be tasked with
+finding one (or more!) mirror/splitter to adjust in order to maximize the
+charging. Rather, we were to try entering the beam from any of the edge-points.
+This was much easier to code, and ran much faster than the other requirement
+would have. But I got a wrong answer on my first submission for part 2, because
+I had an off-by-one error in my code. Four of them, in fact, in the bodies of
+the two `for`-comprehensions in `trace-all`. After explaining my approach to my
+wife, I had a [rubber
+duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging) debugging moment and
+realized the off-by-one errors. That gave me the correct answer (which was, of
+course, only off from my initial answer by 1). Part 2 ran in about 28.5s.
 
 ## [day17.clj](day17.clj)
 
