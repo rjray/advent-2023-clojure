@@ -1,6 +1,5 @@
 (ns advent-of-code.day18
-  (:require [advent-of-code.utils :as u]
-            [clojure.string :as str]))
+  (:require [advent-of-code.utils :as u]))
 
 ;; Map the four directions to the movement needed.
 (def delta {:U [-1 0], :R [0 1], :D [1 0], :L [0 -1]})
