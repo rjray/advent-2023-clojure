@@ -378,7 +378,10 @@ Day 17 (--/--).
 
 ## [day18.clj](day18.clj)
 
-Day 18 (--/--).
+Day 18 (4282/1954, 1:33:32).
+
+Shoelace Formula and Pick's Theorem were (apparently) the words of the day.
+Everyone was using them, so I did too.
 
 ## [day19.clj](day19.clj)
 
