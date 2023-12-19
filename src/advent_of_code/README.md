@@ -416,7 +416,14 @@ Everyone was using them, so I did too.
 
 ## [day19.clj](day19.clj)
 
-Day 19 (--/--).
+Day 19 (5967/4127, 3:45:34).
+
+I lost a LOT of time on part 1, due to an error in a regular expression causing
+an exception whose message was not helpful. Once I fixed my parsing, writing
+the code to process the workflows went pretty cleanly.
+
+On part 2, I had no idea how to proceed. I took some ideas from a Perl
+solution, and some ideas from a Clojure solution.
 
 ## [day20.clj](day20.clj)
 
