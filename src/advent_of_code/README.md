@@ -374,7 +374,33 @@ course, only off from my initial answer by 1). Part 2 ran in about 28.5s.
 
 ## [day17.clj](day17.clj)
 
-Day 17 (--/--).
+Day 17 (17965/16885, >24h).
+
+I wasn't able to finish this one within the first 24 hours (I went to a hockey
+game that night, and played in a classical music concert the next day).
+
+This was harder for me than it seems to have been for the average competitor. I
+tried a few things in which I would maintain extra state for counting the
+number of times the position moves in a given direction. None of them worked,
+and some of them were too complex to fully wrap my head around. I was also
+dead-set on using the [A*](https://en.wikipedia.org/wiki/A*_search_algorithm)
+search algorithm rather than ordinary Dijkstra, because I thought it would be
+more efficient on the larger field that was the puzzle input.
+
+After all my mis-starts and frustration, I started looking at other solutions.
+Most of the Python ones I looked at used a priority queue (from a built-in
+class). I was concerned I'd have to refresh my memory on this data structure
+and write one, but then I looked at [Norman
+Richard's](https://gitlab.com/maximoburrito/advent2023/-/blob/main/src/day17/main.clj)
+solution and learned that there is an existing priority queue implementation. I
+also saw that Norman did some rather clever things with the state of movement,
+and tracking whether the position is moving left/right or up/down.
+
+So my final code bears a strong resemblance to Norman's, though I don't know if
+it is faster or not, being A* instead of Dijkstra. I do know that once I got
+part 1 done, it was fairly small change to enable part 2. I was confident of my
+answer for part 2, since I not only got the example answer correct but also the
+second example (the field of all 1's and 9's) correct.
 
 ## [day18.clj](day18.clj)
 
