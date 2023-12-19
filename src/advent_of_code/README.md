@@ -423,7 +423,11 @@ an exception whose message was not helpful. Once I fixed my parsing, writing
 the code to process the workflows went pretty cleanly.
 
 On part 2, I had no idea how to proceed. I took some ideas from a Perl
-solution, and some ideas from a Clojure solution.
+solution, and some ideas from a Clojure solution. The Perl solution's URL is
+hella long, so I can't easily link it here. The Clojure solution is
+[here](https://github.com/alexalemi/advent/blob/main/2023/clojure/p19.clj), and
+it filled in the gaps that I couldn't figure out from the Perl (which is hella
+ironic, if you know me).
 
 ## [day20.clj](day20.clj)
 
