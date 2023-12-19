@@ -402,6 +402,11 @@ part 1 done, it was fairly small change to enable part 2. I was confident of my
 answer for part 2, since I not only got the example answer correct but also the
 second example (the field of all 1's and 9's) correct.
 
+**Update**: I converted Norman's code to work in my framework and did a few
+simple runs. For part 1, the difference in run-time was next to 0. But in part
+2 his code was measurably faster, about 10-12%. A* was probably overkill in
+this case, or perhaps having to track more states had an effect.
+
 ## [day18.clj](day18.clj)
 
 Day 18 (4282/1954, 1:33:32).
