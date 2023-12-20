@@ -436,7 +436,36 @@ part 1 by about 10% or so. No changes to part 2.
 
 ## [day20.clj](day20.clj)
 
-Day 20 (--/--).
+Day 20 (3773/8488, 14:21:09).
+
+This was another day where I ended up sleeping on part 2. And that didn't
+really help; I did not see that this was a matter of binary counters and gates.
+Looking at other Clojure solutions and asking for help on the Slack channel was
+what finally got part 2 done.
+
+The problem itself is another of the "circuit" variety, with a single
+broadcaster and a variety of points that are either "flip-flop" or
+"conjunction" modules. You send a low pulse to the broadcaster via a button,
+and the pulse propagates throughout the circuit.
+
+Part 1 was to just count how many pulses are sent, low and high, after pressing
+the button 1,000 times. This was a basic iterative approach, just "press" the
+button 1,000 times and track all signals sent to all modules. Runs in about
+230ms.
+
+Part 2 was a typical twist: one of the modules is a "sink", and is also the
+wire that "turns on the machine". You have to find out the minimum number of
+button presses that are needed to get a low signal to that sink. Of course, you
+can't brute-force this... that would be too easy (and too obvious). Here, I had
+to talk to the other Clojure people. It turns out that the sink is fed by a
+conjunction module with four inputs. All four inputs have to send a high pulse
+at the same time for this module to send a low pulse to the sink. The solution
+is to find the cycle of button-pushes for each of the four inputs to send a
+high pulse, then take the LCM of those four numbers.
+
+I won't share the answer (since that would be meaningless anyway), but it was
+in the neighborhood of 225 *trillion*. I hope the elves can automate the
+pressing of that button...
 
 ## [day21.clj](day21.clj)
 
