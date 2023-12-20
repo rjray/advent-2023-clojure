@@ -429,6 +429,11 @@ hella long, so I can't easily link it here. The Clojure solution is
 it filled in the gaps that I couldn't figure out from the Perl (which is hella
 ironic, if you know me).
 
+## [day19bis.clj](day19bis.clj)
+
+Made a few small improvements, mostly cosmetic. Did speed up the running of
+part 1 by about 10% or so. No changes to part 2.
+
 ## [day20.clj](day20.clj)
 
 Day 20 (--/--).
