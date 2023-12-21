@@ -469,11 +469,40 @@ pressing of that button...
 
 ## [day21.clj](day21.clj)
 
-Day 21 (--/--).
+Day 21 (3131/*, 2:06:41).
+
+(I'm not counting my finish-position for part 2 for personal reasons.)
+
+Part 1 was very straightforward. Kind of like a search, but with overlapping
+steps being allowed. Based on the approach taken for part 2, I realize I could
+speed up this implementation with some caching of the viable moves from each
+garden plot. As it stands, part 1 takes about 1.3s, so I'm not worried about
+that.
+
+But part 2... part 2, I just cribbed a Python solution and turned it into
+Clojure. I'm not proud of that, because I didn't (and still don't, really)
+*understand* it. It's one thing when I see an algorithm and understand it and
+just translate the concepts from language X to Clojure, but that wasn't today's
+part 2.
+
+The funny thing, is, that when I compared the Python answer to the Clojure one,
+Clojure took almost exactly 2x the time that Python did. I imagine I have a
+bottleneck somewhere that isn't obvious.
 
 ## [day22.clj](day22.clj)
 
-Day 22 (--/--).
+Day 22 (8758/8338, 14:48:54).
+
+I didn't even start part 1 until the next morning. And then, none of my code
+seemed to work. Working from a solution by Alex Alemi posted in the Slack, I
+got through part 1. I was also able to understand how it works, and what I had
+been doing wrong (some off-by-one errors, some wonky premature-optimization
+issues).
+
+But part 2... well, I have the answer but I don't completely understand the
+code. Again, flailed at it for a while before looking back to Alex's code. I
+need to understand transducers better. This isn't the first time I've seen them
+used by other Clojure programmers.
 
 ## [day23.clj](day23.clj)
 
