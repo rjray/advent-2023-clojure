@@ -506,7 +506,20 @@ used by other Clojure programmers.
 
 ## [day23.clj](day23.clj)
 
-Day 23 (--/--).
+Day 23 (3284/6421, 12:40:31).
+
+The word of the day is "hubris". Part 1 went pretty well (despite starting it
+about 15-20 minutes late). It got the answer for the puzzle data in 1.7s, which
+(at the time) seemed fine. Part 2 was just a matter of turning the "slick"
+squares into normal ones and re-running the same code. This would be a snap!
+
+(Narrator: It was not, in fact, a "snap".)
+
+Part 2's twist introduced several cycles into the graph that describes the
+field. My part 1 code got caught in these and just spun and spun. For part 2, I
+had to write a whole new solution. It reuses some of part 1 (for getting the
+start and end points, and the initial parsing of the field), but the actual
+computation part is all new.
 
 ## [day24.clj](day24.clj)
 
