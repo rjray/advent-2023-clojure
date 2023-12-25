@@ -570,15 +570,15 @@ Once I understood it well-enough to conform the puzzle data into the format
 that the algorithm requires, I was able to get the correct answer for the test
 data. But there was a hitch... Karger's is an algorithm that incorporates
 randomness, and isn't always guaranteed to get the true minimum cut. When I
-wrote and ran this for the Coursera class, the input has 200 vertices and the
-code ran for 5x this, or 1000 iterations. The puzzle data, though, has over
+wrote and ran this for the Coursera class, the input had 200 vertices and the
+code ran for 5x this, or 1,000 iterations. The puzzle data, though, has over
 1500 vertices. Not only is 5x that enormous, but each iteration takes that much
 longer on its own.
 
 So, for now, I hard-coded the number of iterations and kept increasing that
 number by a factor of two until the answer had a cut-size of 3. It needed
-roughly 128 iterations, and ran for almost three minutes. But it got the right
-answer, and I didn't need anyone else's code to crib from.
+somewhere between 64 and 128 iterations, and ran for almost three minutes. But
+it got the right answer, and I didn't need anyone else's code to crib from.
 
 There will be a follow-up file for this one. I can clean this up considerably.
 My Clojure-fu was much weaker when I originally wrote this.
