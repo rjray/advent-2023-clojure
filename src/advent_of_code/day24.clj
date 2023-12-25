@@ -2,6 +2,8 @@
   (:require [advent-of-code.utils :as u]
             [clojure.math.combinatorics :as comb]))
 
+;; Parse all the lines into pairs of triples that represent the coordinate and
+;; velocity of each hailstone.
 (defn- to-coords [lines]
   (mapv (comp (partial mapv vec) (partial partition 3) u/parse-out-longs)
         lines))
@@ -16,6 +18,10 @@
                                (and (zero? (h1 d)) (= (point d) (h0 d))))
                          true false)))))
 
+;; Find the intersection between to two points, ensuring that it is within the
+;; bounding-box defined by `lo` and `hi`. Returns a `true` value, or `false` if
+;; there is no intersection, the lines are parallel, or the intersection is in
+;; the past.
 (defn- intersect-within [lo hi [p1 v1] [p2 v2]]
   (let [c1 (-' (*' (v1 0) (p1 1)) (*' (v1 1) (p1 0)))
         c2 (-' (*' (v2 0) (p2 1)) (*' (v2 1) (p2 0)))
@@ -29,6 +35,9 @@
         Fx (not-past [Px Py] [p1 v1] [p2 v2])]
     (and (not (zero? d)) (<= lo Px hi) (<= lo Py hi) Fx)))
 
+;; Count the number of pairs that intercept within the given bounding box.
+;; Might be able to rewrite this as a `filter` usage with `intersect-within`
+;; as the predicate.
 (defn- find-2d-intercepts [lo hi coords]
   (apply + (for [[a b] (comb/combinations (range (count coords)) 2)]
              (if (intersect-within lo hi (coords a) (coords b)) 1 0))))
@@ -48,6 +57,8 @@
 ;; https://old.reddit.com/r/adventofcode/comments/18pptor/2023_day_24_part_2java_is_there_a_trick_for_this/keps780/
 ;; https://old.reddit.com/r/adventofcode/comments/18pptor/2023_day_24_part_2java_is_there_a_trick_for_this/kepxbew/
 
+;; Create the vector of three sets that track the invalid values for the goal
+;; velocity in each of the three axes.
 (defn- make-invalid-sets [coords]
   (reduce (fn [acc [d rng]]
             (update-in acc [d] into rng))
@@ -59,6 +70,9 @@
                            (> (get-in l1 [1 d]) (get-in l2 [1 d])))]
             (list d (range (get-in l2 [1 d]) (get-in l1 [1 d]))))))
 
+;; Find the intersection point of the lines for the two hailstones passed in.
+;; Tried to re-use the intersection code from part 1, but here we need the
+;; actual (X, Y) pair, and we wouldn't use the lo/hi values at all.
 (defn- intersection-point [[p1 v1] [p2 v2]]
   (let [c1 (-' (*' (v1 0) (p1 1)) (*' (v1 1) (p1 0)))
         c2 (-' (*' (v2 0) (p2 1)) (*' (v2 1) (p2 0)))
@@ -71,6 +85,8 @@
         Py (if (zero? d) nil (/ (-' (*' a2 c1) (*' a1 c2)) d))]
     (when Px [(double Px) (double Py)])))
 
+;; Test for a "good" intersection between the goal-point and the passed-in
+;; hailstone value.
 (defn- good-intersect [goal hs]
   (loop [[d & ds] (range 3), good true]
     (cond
@@ -90,6 +106,9 @@
       :else
       (recur ds good))))
 
+;; Find the sum of the (X, Y, Z) coordinates of the goal value, if a fitting
+;; goal triple can be found from this list of values in `nh`. If no fit is
+;; found, returns 0.
 (defn- find-position-sum [nh]
   (let [hs1 (first nh)
         hs2 (second nh)
@@ -113,6 +132,12 @@
           0))
       0)))
 
+;; Solve for the position the rock needs to be at. Does a three-level loop over
+;; the three axes for the velocity, skipping any that are not valid. For each
+;; triple that gets through the checks, create a new list of the hailstone
+;; coordinates structures that are tuned to the potential velocity. Call the
+;; `find-position-sum` function on the new list, filter out all zeroes that
+;; result, and take the answer.
 (defn- solve-for-position [coords]
   (let [invalid (make-invalid-sets coords)]
     (first
