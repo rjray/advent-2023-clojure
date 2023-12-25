@@ -523,7 +523,33 @@ computation part is all new.
 
 ## [day24.clj](day24.clj)
 
-Day 24 (--/--).
+Day 24 (9924/6088, 20:53:28).
+
+I got off to a late start on this puzzle, but I thought I made pretty short
+work of part 1 (after a refresher on basic algebra). But I had something wrong
+with my function to test if an intercept was in the past, and my first
+submission for part 1 was wrong. I tried four or so variations on the routine,
+but all of them returned the same number. Once again, I slept on it. After
+flailing for another hour or so, I turned to reddit and found a Python solution
+that had used the same basic algebra as I had for intersection detection. I
+looked at the function that checked for the intersection being in the past, and
+though it was super-subtle, I did finally find a small bug in my version. I
+ended up adapting the function that person had written, and got the right
+answer.
+
+Part 2 was, to my brain, the hardest puzzle of the year (with Day 25 pending,
+of course). I have a "refined" brute-force approach, based largely on the same
+Python code (credited in my code): creates sets of invalid values for each of
+the three velocity axes, then have a three-layer loop over a reasonable range
+on each axis that skips invalida values. However, this code kept crashing with
+various different run-time errors. Once I (finally) got it to run all the way
+through... it had found no answer. Debugging this took *hours*. Finally, I
+realized that my generation of the sets of invalid numbers was incorrect.
+Fixing that led to more run-time errors, but fixing them led to the correct
+answer.
+
+This isn't the greatest amount of elapsed clock-time for a day (that goes to
+Day 17), but it was definitely the hardest one to wrap my head around.
 
 ## [day25.clj](day25.clj)
 
