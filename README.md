@@ -13,7 +13,7 @@ comment code after the fact, when I'm not racing the clock.)
 
 ## Stats
 
-Number of answers correct on first submission: 41/48 (85.42%)
+Number of answers correct on first submission: 43/50 (86%)
 
 Highest finish for first half: 2473 (day 12)
 

@@ -553,4 +553,32 @@ Day 17), but it was definitely the hardest one to wrap my head around.
 
 ## [day25.clj](day25.clj)
 
-Day 25 (--/--).
+Day 25 (3548/2927, 3:48:58).
+
+Well, this *should* have been easy. The problem was to find a [minimum
+cut](https://en.wikipedia.org/wiki/Minimum_cut) of a graph. A good algorithm
+for this is [Karger's
+algorithm](https://en.wikipedia.org/wiki/Karger%27s_algorithm), which I
+happened to have already implemented in the 4-course [Algorithms
+Specialization](https://www.coursera.org/specializations/algorithms) from
+Coursera. And I still have the code!
+
+Only, even with generous commentary, it took me hours to f-ing **understand**
+the code.
+
+Once I understood it well-enough to conform the puzzle data into the format
+that the algorithm requires, I was able to get the correct answer for the test
+data. But there was a hitch... Karger's is an algorithm that incorporates
+randomness, and isn't always guaranteed to get the true minimum cut. When I
+wrote and ran this for the Coursera class, the input has 200 vertices and the
+code ran for 5x this, or 1000 iterations. The puzzle data, though, has over
+1500 vertices. Not only is 5x that enormous, but each iteration takes that much
+longer on its own.
+
+So, for now, I hard-coded the number of iterations and kept increasing that
+number by a factor of two until the answer had a cut-size of 3. It needed
+roughly 128 iterations, and ran for almost three minutes. But it got the right
+answer, and I didn't need anyone else's code to crib from.
+
+There will be a follow-up file for this one. I can clean this up considerably.
+My Clojure-fu was much weaker when I originally wrote this.
