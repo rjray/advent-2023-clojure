@@ -93,7 +93,81 @@
        karger-min-cut
        get-answer))
 
+(defn- to-graph2 [lines]
+  (list (first (str/split (first lines) #":" 2))
+        (update-vals
+         (reduce (fn [graph [from & to]]
+                   (loop [[to & tos] to, graph graph]
+                     (if (nil? to)
+                       graph
+                       (recur tos (update (update graph from conj to)
+                                          to conj from)))))
+                 {} (map #(str/split % #"\W+") lines))
+         set)))
+
+(defn- mark-and-place [first-node graph]
+  (loop [queue (list first-node), positions {}, count 0, last-node nil]
+    (if-let [node (first queue)]
+      (if (find positions node)
+        (recur (rest queue) positions count node)
+        (recur (concat (rest queue) (graph node))
+               (assoc positions node (inc count))
+               (inc count)
+               node))
+      (list count last-node positions))))
+
+(defn- neighbors [graph pos node max-gap max-edge last-node]
+  (let [neighbors (graph node)
+        node-pos  (pos node)]
+    (loop [[n & ns] neighbors, avg 0, max-gap max-gap, max-edge max-edge]
+      (if (nil? n)
+        (list (double (/ avg (count neighbors))) max-gap max-edge)
+        (let [npos (pos n)
+              gap  (abs (- npos node-pos))]
+          (if (and (> gap max-gap) (not= n last-node))
+            (recur ns (+ avg npos) gap (list node n))
+            (recur ns (+ avg npos) max-gap max-edge)))))))
+
+(defn- adjust [graph pos first-node last-node]
+  (loop [[node & nodes] (keys graph), pos pos, mvmt 0, max-gap 0, max-edge ()]
+    (cond
+      (nil? node) (list pos mvmt max-edge)
+      (or (= node first-node)
+          (= node last-node)) (recur nodes pos mvmt max-gap max-edge)
+      :else
+      (let [[avg new-gap new-edge] (neighbors graph pos node max-gap max-edge
+                                              last-node)]
+        (recur nodes
+               (assoc pos node avg)
+               (max (abs (- (pos node) avg)) mvmt)
+               new-gap
+               new-edge)))))
+
+(defn- find-cut [graph positions first-node last-node]
+  (loop [[pos mvmt max-edge] (list positions 100 nil)]
+    (if (<= mvmt 0.05)
+      (list max-edge pos)
+      (recur (adjust graph pos first-node last-node)))))
+
+(defn- delete-edges [graph src dst]
+  (assoc (assoc graph src (disj (graph src) dst))
+         dst (disj (graph dst) src)))
+
+(defn- split-graph [cuts [first-node graph]]
+  (let [node-count              (count (keys graph))
+        [_ last-node positions] (mark-and-place first-node graph)]
+    (loop [iter 0, graph graph, positions positions]
+      (if (= iter cuts)
+        (let [[final-count] (mark-and-place first-node graph)]
+          (* final-count (- node-count final-count)))
+        (let [[[src dst] positions] (find-cut graph positions
+                                              first-node last-node)]
+          (recur (inc iter) (delete-edges graph src dst) positions))))))
+
 (defn part-2
   "Day 25 Part 2"
   [input]
-  "Congrats! You should have all 50 stars by now!")
+  (->> input
+       u/to-lines
+       to-graph2
+       (split-graph 3)))
