@@ -582,3 +582,27 @@ it got the right answer, and I didn't need anyone else's code to crib from.
 
 There will be a follow-up file for this one. I can clean this up considerably.
 My Clojure-fu was much weaker when I originally wrote this.
+
+## [day25bis.clj](day25bis.clj)
+
+I haven't "cleaned up" the code as much as I thought I could, to be honest.
+
+The first thing I did was to replace the hard-coded number of iterations with a
+use of `filter` over a `pmap` that produces an infinite lazy sequence. It takes
+the first response from the parallel mapping in which the cut-size is 3. I also
+eliminated the `do-karger-min-cut` function, as that had been there only
+because I couldn't nest #-declared lambda functions (for `sort` over `pmap`).
+Now that I understand `partial`, I was able to use that for the inner function.
+
+I spent most of the time on the parallelism of the code, as the `pmap`-based
+approach waits for all current threads to complete before letting the program
+exit. Thus, the answer will appear (with the time taken to reach it) but the
+program will continue to run for several minutes after the it appears. When the
+number of iterations was hard-coded, this wasn't apparent. But it became clear
+when using the filtering approach. I tried a few different things, including
+making use of the [Claypoole](https://github.com/clj-commons/claypoole)
+thread-tools library for Clojure. Even with this, I could not get the program
+to terminate immediately once a solution was found. I removed that code and am
+calling this one done. I have a possibly-novel algorithmic approach written by
+someone on reddit (in Perl, no less) that I plan to convert to FP and see how
+it compares.
