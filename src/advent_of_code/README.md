@@ -606,3 +606,10 @@ Clojure. Even with this, I could not get the program to terminate immediately
 once a solution was found. I removed that code and am calling this one done. I
 have a possibly-novel algorithmic approach written by someone on reddit (in
 Perl, no less) that I plan to convert to FP and see how it compares.
+
+*Edit*: I have added the Perl-sourced algorithm to this file. Since I didn't
+want to create a third ("ternate"?) file-version, I just used the empty
+`part-2` slot for this. The new code starts around line 96, with a comment
+block that includes links to relevant reddit posts/comments. I got the code
+working, but it runs over 3x slower than the Perl code does. I am looking into
+this.
