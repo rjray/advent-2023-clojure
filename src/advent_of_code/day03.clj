@@ -70,9 +70,10 @@
         max-x (count (first mat))]
     (group-by last
               (map first
-                   (filter seq (for [row (range (count num-rows))
-                                     [col num] (num-rows row)]
-                                 (get-gears mat row col max-y max-x num)))))))
+                   (remove empty?
+                           (for [row (range (count num-rows))
+                                 [col num] (num-rows row)]
+                             (get-gears mat row col max-y max-x num)))))))
 
 ;; Take the gears data, filter out all gears that have exactly two adjacent
 ;; part numbers, and create a sequence of those products.

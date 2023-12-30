@@ -82,7 +82,7 @@
          visited #{}
          graph {}]
     (if-let [vertex (peek vertices)]
-      (if (not (visited vertex))
+      (if-not (visited vertex)
         (let [positions (get-positions G vertex)]
           (recur (into (pop vertices) (map first positions))
                  (conj visited vertex)

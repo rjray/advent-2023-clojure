@@ -38,7 +38,7 @@
 ;; wasn't necessary after all. I'll probably refactor this code later to remove
 ;; this.
 (defn- find-in-mapping [val fr to maps]
-  (let [this-map-key (keyword (apply str (list fr "-to-" to)))
+  (let [this-map-key (keyword (str/join (list fr "-to-" to)))
         this-map     (maps this-map-key)
         base         (last (take-while #(<= % val) (sort (keys this-map))))]
     (if base (get-val base (this-map base) val) val)))

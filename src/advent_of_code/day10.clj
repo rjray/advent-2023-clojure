@@ -101,7 +101,7 @@
 ;; Count the full area inside the loop by running `count-interior` over each
 ;; line and summing them up.
 (defn- count-area [matrix]
-  (reduce + (map #(count-interior (apply str %)) matrix)))
+  (reduce + (map #(count-interior (str/join %)) matrix)))
 
 (defn part-2
   "Day 10 Part 2"

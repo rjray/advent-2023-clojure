@@ -30,7 +30,7 @@
 ;; Determine if a game is possible by checking to see if any rounds are not
 ;; possible.
 (defn- is-possible? [r g b {rounds :rounds}]
-  (not (some #(not-possible r g b %) rounds)))
+  (not-any? #(not-possible r g b %) rounds))
 
 ;; Filter the full set of games by the `is-possible?` predicate, then pull out
 ;; their ID values.

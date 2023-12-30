@@ -66,7 +66,7 @@
 ;; concatenated with `apply`+`concat`.
 (defn- rank-hands [hands]
   (let [grouped (group-by :type hands)]
-    (apply concat (map sort-rank (map #(grouped %) (sort (keys grouped)))))))
+    (mapcat sort-rank (map grouped (sort (keys grouped))))))
 
 ;; Calculate each hand's winning value. This is the :bid value multiplied by
 ;; the position in the list (starting at 1). Use `(iterate inc 1)` to provide

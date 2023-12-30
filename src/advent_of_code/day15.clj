@@ -57,9 +57,7 @@
 ;; Use `reduce` to process the stream of instructions. Sets up the `boxes`
 ;; value as a vector of 256 empty vectors and iterates over the split line.
 (defn- process-instructions [line]
-  (reduce (fn [boxes inst]
-            (add-to-box boxes inst))
-          (vec (repeat 256 [])) (str/split line #",")))
+  (reduce add-to-box (vec (repeat 256 [])) (str/split line #",")))
 
 ;; Compute the total focal power of every lens in the series of boxes. There
 ;; may be a slightly-cleaner way to do this that associates the index with each

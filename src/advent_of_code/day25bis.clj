@@ -175,8 +175,7 @@
 ;; Update `graph` to remove the given edge. Since the graph is bi-directional,
 ;; this has to be removed from both ends.
 (defn- delete-edges [graph src dst]
-  (assoc (assoc graph src (disj (graph src) dst))
-         dst (disj (graph dst) src)))
+  (update-in (update-in graph [src] disj dst) [dst] disj src))
 
 ;; Find a cut of `graph` of size `cuts`. Once found, derive the product
 ;; specified by the puzzle.

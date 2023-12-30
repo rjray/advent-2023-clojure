@@ -11,10 +11,10 @@
 ;; This adapted from:
 ;; https://gitlab.com/davidsharick/advent-of-code-2023/-/blob/main/day24/day24.py
 (defn- not-past [point line1 line2]
-  (when (not (nil? (point 0)))
+  (when-not (nil? (point 0))
     (every? identity (for [d (range 2), [h0 h1] [line1 line2]]
-                       (if (or (and (> (h1 d) 0) (> (point d) (h0 d)))
-                               (and (< (h1 d) 0) (< (point d) (h0 d)))
+                       (if (or (and (pos? (h1 d)) (> (point d) (h0 d)))
+                               (and (neg? (h1 d)) (< (point d) (h0 d)))
                                (and (zero? (h1 d)) (= (point d) (h0 d))))
                          true false)))))
 
@@ -30,8 +30,8 @@
         a1 (v1 1)
         a2 (v2 1)
         d  (-' (*' a1 b2) (*' a2 b1))
-        Px (if (zero? d) nil (/ (-' (*' b1 c2) (*' b2 c1)) d))
-        Py (if (zero? d) nil (/ (-' (*' a2 c1) (*' a1 c2)) d))
+        Px (when-not (zero? d) (/ (-' (*' b1 c2) (*' b2 c1)) d))
+        Py (when-not (zero? d) (/ (-' (*' a2 c1) (*' a1 c2)) d))
         Fx (not-past [Px Py] [p1 v1] [p2 v2])]
     (and (not (zero? d)) (<= lo Px hi) (<= lo Py hi) Fx)))
 
@@ -81,8 +81,8 @@
         a1 (v1 1)
         a2 (v2 1)
         d  (-' (*' a1 b2) (*' a2 b1))
-        Px (if (zero? d) nil (/ (-' (*' b1 c2) (*' b2 c1)) d))
-        Py (if (zero? d) nil (/ (-' (*' a2 c1) (*' a1 c2)) d))]
+        Px (when-not (zero? d) (/ (-' (*' b1 c2) (*' b2 c1)) d))
+        Py (when-not (zero? d) (/ (-' (*' a2 c1) (*' a1 c2)) d))]
     (when Px [(double Px) (double Py)])))
 
 ;; Test for a "good" intersection between the goal-point and the passed-in
