@@ -139,8 +139,8 @@
         (let [npos (pos n)
               gap  (abs (- npos node-pos))]
           (if (and (> gap max-gap) (not= n last-node))
-            (recur ns (+ avg npos) gap (list node n))
-            (recur ns (+ avg npos) max-gap max-edge)))))))
+            (recur ns (long (+ avg npos)) gap (list node n))
+            (recur ns (long (+ avg npos)) max-gap max-edge)))))))
 
 ;; This is the outer foreach loop from `findCut`. It loops over the nodes of
 ;; the graph, making adjustments to positions map `pos`, the movement range
@@ -157,8 +157,8 @@
                                               last-node)]
         (recur nodes
                (assoc pos node avg)
-               (max (abs (- (pos node) avg)) mvmt)
-               new-gap
+               (long (max (abs (- (pos node) avg)) mvmt))
+               (long new-gap)
                new-edge)))))
 
 ;; The implementation of `findCut` from the Perl code. This finds the edge that
