@@ -164,13 +164,13 @@
 ;; The implementation of `findCut` from the Perl code. This finds the edge that
 ;; maximizes the gap to its neighbors and returns that (along with the updated
 ;; position data, `pos`). Note that having the `mvmt` metric reach or drop
-;; below 0.05 was later replaced with a maximum iteration length of 3 in the
-;; original author's code.
+;; below 0.05 was later augmented with a maximum iteration length of 3 in the
+;; original author's code. Added that change here, as well.
 (defn- find-cut [graph positions first-node last-node]
-  (loop [[pos mvmt max-edge] (list positions 100 nil)]
-    (if (<= mvmt 0.05)
+  (loop [iter 0, [pos mvmt max-edge] (list positions 100 nil)]
+    (if (or (= iter 3) (<= mvmt 0.05))
       (list max-edge pos)
-      (recur (adjust graph pos first-node last-node)))))
+      (recur (inc iter) (adjust graph pos first-node last-node)))))
 
 ;; Update `graph` to remove the given edge. Since the graph is bi-directional,
 ;; this has to be removed from both ends.
