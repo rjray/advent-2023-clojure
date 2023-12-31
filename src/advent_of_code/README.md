@@ -26,6 +26,16 @@ version of a day, that can be run via:
 lein run -b DAY PART
 ```
 
+If you want to run a day/part with an alternate input file, you can do that
+with:
+
+```
+lein run -f FILE DAY PART
+```
+
+The parameter `FILE` must be an absolute path, or it will be looked for
+relative to the `resources` directory.
+
 ## [day01.clj](day01.clj)
 
 Day 1 (5607/5280, 45:51).

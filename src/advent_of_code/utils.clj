@@ -5,7 +5,7 @@
 (defn read-input
   "Read in the content of the given day-file and return as a blob"
   [day]
-  (slurp (io/resource day)))
+  (slurp (if (str/starts-with? day "/") day (io/resource day))))
 
 (defn to-blocks
   "Turn a blob (probably from `slurp`) into a seq of blocks"
