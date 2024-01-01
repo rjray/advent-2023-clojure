@@ -623,3 +623,9 @@ want to create a third ("ternate"?) file-version, I just used the empty
 block that includes links to relevant reddit posts/comments. I got the code
 working, but it runs over 3x slower than the Perl code does. I am looking into
 this.
+
+*Edit 2*: The Perl author modified his code to only iterate a maximum of three
+times for each cut. I applied this to my code and got the run-time down to just
+under 500ms. I haven't instrumented the Perl code to measure just the
+algorithmic time, but I suspect that it is still operating faster than the
+Clojure code. I may or may not pursue this further.
